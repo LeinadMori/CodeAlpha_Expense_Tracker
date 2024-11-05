@@ -1,0 +1,305 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #f5f5f5; 
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    margin-left: 10px;
+    width: 60px;
+    border-radius: 10%;
+}
+
+.search-bar {
+    display: flex;
+    margin-left: 900px;
+}
+
+.search-bar input {
+    padding: 3px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+}
+
+.search-bar button {
+    background-color: #007bff; 
+    color: white; 
+    border: none; 
+    border-radius: 4px; 
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.user-profile button {
+    background: none; 
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+
+/* Sidebar Container */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    background-color: #1a1a1a;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+
+/* Logo and Title */
+.sidebar-logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sidebar-logo img {
+    width: 50px;
+    height: auto;
+}
+
+.sidebar-logo h1 {
+    font-size: 1.5rem;
+    margin: 10px 0 0;
+    color: #00c853; /* Customize brand color */
+}
+
+/* Navigation Links */
+.sidebar-nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar-nav ul li {
+    margin: 15px 0;
+}
+
+.sidebar-nav ul li a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    padding: 8px 20px;
+    transition: color 0.3s ease;
+}
+
+.sidebar-nav ul li a i {
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+.sidebar-nav ul li a:hover {
+    color: #00c853;
+}
+
+/* User Profile and Logout */
+.sidebar-footer {
+    margin-top: auto;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.user-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.user-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.logout {
+    color: #ccc;
+    font-size: 1.1rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+.logout i {
+    margin-right: 8px;
+}
+
+.logout:hover {
+    color: #00c853;
+}
+
+/* Main Content Area */
+.main-content {
+    margin-left: 250px;
+    padding: 20px;
+    background-color: #f4f6f8;
+    min-height: 100vh;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+    gap: 1.5rem;
+}
+
+/* Expense List Section */
+.expense-list {
+    flex: 1;
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.expense-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.expense-list-header h2 {
+    font-size: 1.5rem;
+    color: #007bff;
+}
+
+.filter-options select {
+    padding: 0.4rem;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+/* Individual Expense Items */
+.expenses {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.expense-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.expense-item:last-child {
+    border-bottom: none;
+}
+
+.expense-title {
+    font-weight: bold;
+    color: #495057;
+}
+
+.expense-amount {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.expense-date {
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.expense-actions i {
+    margin-left: 0.5rem;
+    color: #007bff;
+    cursor: pointer;
+}
+
+.total-expense-summary {
+    text-align: right;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #343a40;
+    margin-top: 1rem;
+}
+
+/* Add/Edit Expense Form Section */
+.add-expense-form {
+    flex: 1;
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-header h2 {
+    font-size: 1.5rem;
+    color: #007bff;
+    margin-bottom: 1rem;
+}
+
+form label {
+    font-weight: bold;
+    color: #495057;
+    display: block;
+    margin-top: 1rem;
+}
+
+form input[type="text"],
+form input[type="number"],
+form input[type="date"],
+form select,
+form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.form-actions button {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.form-actions button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+}
+
+.form-actions button[type="reset"] {
+    background-color: #6c757d;
+    color: white;
+}
