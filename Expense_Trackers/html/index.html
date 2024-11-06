@@ -5,127 +5,133 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Expense Tracker</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="/Styles/index.css">
-    <link rel="icon" href="/Images/logo.png">
+    <link rel="stylesheet" href="/Expense_Trackers/Styles/index.css">
+    <link rel="icon" href="/Expense_Trackers/Images/logo.png">
 </head>
 <body>
     <header>
-      <div class="header-container">
-        <div class="logo"><img src="logo.png" alt="Logo"></div>
-        <div class="search-bar">
-          <input type="text" placeholder="Search...">
-          <button>Search</button>
-        </div>
-        <div class="user-profile"><button>Profile</button></div>
-      </div>
-    </header>
-
-    <!-- 
-        <div class="sidebar">
-            <div class="sidebar-logo">
-                <img src="logo.png" alt="Logo">
-                <h1>Brand</h1>
+        <div class="header-container">
+            <div class="logo"><img src="/Expense_Trackers/Images/logo.png" alt="Logo"></div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <button>Search</button>
             </div>
-            <nav class="sidebar-nav">
-                <ul>
-                    <li><a href="#dashboard"><i class="fas fa-home"></i> Dashboard</a></li>
-                    <li><a href="#expense-history"><i class="fas fa-list"></i> Expense History</a></li>
-                    <li><a href="#reports"><i class="fas fa-chart-bar"></i> Reports</a></li>
-                    <li><a href="#settings"><i class="fas fa-cog"></i> Settings</a></li>
-                </ul>
-            </nav>
-            <div class="sidebar-footer">
-                <div class="user-profile"><img src="profile.jpg" alt="Profile"></div>
-                <a class="logout" href="#">Logout</a>
-            </div>
-        </div>
-    -->
-  
-    <div class="main-content">
-      <main>
-        <section class="expense-list">
-          <!-- Expense items -->
-           <!-- Header for Expense List -->
-        <header class="expense-list-header">
-            <h2>Expense List</h2>
-            <!-- Optional Filter Dropdown -->
-            <div class="filter-options">
-                <label for="filter">Sort by:</label>
-                <select id="filter">
-                    <option value="date">Date</option>
-                    <option value="category">Category</option>
-                    <option value="amount">Amount</option>
-                </select>
-            </div>
-        </header>
-        
-        <!-- List of Expenses -->
-        <div class="expenses">
-            <!-- Example Expense Card -->
-            <div class="expense-item">
-                <span class="expense-title">Groceries</span>
-                <span class="expense-amount">$50</span>
-                <span class="expense-date">2023-11-01</span>
-                <div class="expense-actions">
-                    <i class="fas fa-edit" aria-label="Edit Expense"></i>
-                    <i class="fas fa-trash" aria-label="Delete Expense"></i>
+            
+            <div class="user-profile">
+                <button onclick="toggleDropdown()">
+                    <i class="fas fa-user-circle"></i>
+                </button>
+                <div id="profile-dropdown" class="dropdown-menu" style="display: none;">
+                    <p><strong>John Doe</strong></p>
+                    <div class="profile-item">
+                        <p><a href="#edit-profile">Edit Profile ▶</a></p>
+                        <div class="edit-profile-dropdown">
+                            <p><a href="#personal-info">Personal Info</a></p>
+                            <p><a href="#change-password">Change Password</a></p>
+                            <p><a href="#privacy">Privacy Settings</a></p>
+                            <p><a href="#notifications">Notification Preferences</a></p>
+                        </div>
+                    </div>
+                    <p><a href="#settings">Settings</a></p>
+                    <p><a href="#logout">Logout</a></p>
                 </div>
             </div>
-            <!-- Add more expense items here -->
+            
         </div>
+    </header>
 
-        <!-- Total Expense Summary -->
-        <div class="total-expense-summary">
-            <strong>Total: </strong> $250
+    <div class="sidebar">
+        <div class="sidebar-logo">
+            <img src="/Expense_Trackers/Images/logo.png" alt="Logo">
+            <h1>BudgetBuddy</h1>
         </div>
-    </section>
-    <section class="add-expense-form">
-        <!-- Form Header -->
-        <header class="form-header">
-            <h2>Add New Expense</h2>
-        </header>
-        <!-- Expense Form -->
-        <form>
-            <label for="expense-name">Expense Name:</label>
-            <input type="text" id="expense-name" name="expense-name" placeholder="Enter expense name" required>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="/Expense_Trackers/html/dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li><a href="#expense-history"><i class="fas fa-list"></i> Expense History</a></li>
+                <li><a href="#reports"><i class="fas fa-chart-bar"></i> Reports</a></li>
+                <li><a href="#settings"><i class="fas fa-cog"></i> Settings</a></li>
+                <li><a href="#notifications"><i class="fas fa-bell"></i> Notifications</a></li>
+                <li><a href="#help"><i class="fas fa-question-circle"></i> Help</a></li>
+                <li><a href="#account"><i class="fas fa-user"></i> Account</a></li>
+            </ul>
+        </nav>        
+        <div class="sidebar-footer">
+            <div class="user-profile"><img src="profile.jpg" alt="Profile"></div>
+            <a class="logout" href="#">Logout</a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <main>
+            <section class="expense-list">
+                <header class="expense-list-header">
+                    <h2>Expense List</h2>
+                    <div class="filter-options">
+                        <label for="filter">Sort by:</label>
+                        <select id="filter">
+                            <option value="date">Date</option>
+                            <option value="category">Category</option>
+                            <option value="amount">Amount</option>
+                        </select>
+                    </div>
+                </header>
                 
-            <label for="expense-amount">Amount:</label>
-            <input type="number" id="expense-amount" name="expense-amount" placeholder="Enter amount" required>
-            <label for="expense-category">Category:</label>
-            <select id="expense-category" name="expense-category">
-                <option value="food">Food</option>
-                <option value="transport">Transport</option>
-                <option value="utilities">Utilities</option>
-                <option value="housing">Housing</option>
-                <option value="healthcare">Healthcare</option>
-                <option value="insurance">Insurance</option>
-                <option value="entertainment">Entertainment</option>
-                <option value="education">Education</option>
-                <option value="savings">Savings</option>
-                <option value="investments">Investments</option>
-                <option value="clothing">Clothing</option>
-                <option value="gifts">Gifts</option>
-                <option value="travel">Travel</option>
-                <option value="personal-care">Personal Care</option>
-                <option value="subscriptions">Subscriptions</option>
-                <option value="charity">Charity</option>
-                <option value="childcare">Childcare</option>
-                <option value="loan-payments">Loan Payments</option>
-                <option value="taxes">Taxes</option>
-                <option value="miscellaneous">Miscellaneous</option>
-            </select>
-            <label for="expense-date">Date:</label>
-            <input type="date" id="expense-date" name="expense-date" required>
-                
-            <label for="expense-notes">Notes:</label>
-            <textarea id="expense-notes" name="expense-notes" placeholder="Additional details"></textarea>
-            <!-- Action Buttons -->
-            <div class="form-actions">
-                <button type="submit">Save Expense</button>
-                <button type="reset">Clear</button>
+                <div class="expenses">
+                    <div class="expense-item">
+                        <span class="expense-title">Groceries</span>
+                        <span class="expense-amount">$50</span>
+                        <span class="expense-date">2023-11-01</span>
+                        <div class="expense-actions">
+                            <i class="fas fa-edit" aria-label="Edit Expense"></i>
+                            <i class="fas fa-trash" aria-label="Delete Expense"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="total-expense-summary">
+                    <strong>Total: </strong> $250
+                </div>
+            </section>
+            <section class="add-expense-form">
+                <header class="form-header">
+                    <h2>Add New Expense</h2>
+                </header>
+                <form>
+                    <label for="expense-name">Expense Name:</label>
+                    <input type="text" id="expense-name" name="expense-name" placeholder="Enter expense name" required>
+                    <label for="expense-amount">Amount:</label>
+                    <input type="number" id="expense-amount" name="expense-amount" placeholder="Enter amount" required>
+                    <label for="expense-category">Category:</label>
+                    <select id="expense-category" name="expense-category">
+                        <option value="food">Food</option>
+                        <!-- Other categories... -->
+                        <option value="miscellaneous">Miscellaneous</option>
+                    </select>
+                    <label for="expense-date">Date:</label>
+                    <input type="date" id="expense-date" name="expense-date" required>
+                    <label for="expense-notes">Notes:</label>
+                    <textarea id="expense-notes" name="expense-notes" placeholder="Additional details"></textarea>
+                    <div class="form-actions">
+                        <button type="submit">Save Expense</button>
+                        <button type="reset">Clear</button>
+                    </div>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 BudgetBuddy. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a> | 
+                <a href="#">Terms of Service</a> | 
+                <a href="#">Contact Us</a>
             </div>
-        </form>
-    </section>
-</main>
-</body>  
+        </div>
+    </footer>
+    <script src="/Expense_Trackers/Javascript/index.js"></script>
+</body>
 </html>
