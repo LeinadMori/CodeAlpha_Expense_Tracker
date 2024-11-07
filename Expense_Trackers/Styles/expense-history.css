@@ -1,0 +1,42 @@
+.sidebar-nav {
+    width: 200px;
+    height: 100%;
+    background-color: #f1f1f1;
+    padding: 20px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+  }
+
+  .sidebar-nav ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .sidebar-nav li a {
+    display: block;
+    color: #333;
+    padding: 10px;
+    text-decoration: none;
+  }
+
+  .sidebar-nav li a:hover {
+    background-color: #ddd;
+  }
+
+  .content {
+    margin-left: 200px;
+    padding: 20px;
+  }
+
+  @media (max-width: 768px) {
+    .sidebar-nav {
+      width: 80px;
+    }
+
+    .content {
+      margin-left: 80px;
+    }
+  }
