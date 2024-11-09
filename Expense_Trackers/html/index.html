@@ -49,14 +49,47 @@
               ></i>
             </div>
           </div>
+          <!-- avatar Section -->
           <div class="flex items-center gap-2">
             <span class="text-gray-300 font-medium">John Doe</span>
             <img
-              src="/Expense_Trackers/Images/avatar.png"
-              alt="User Avatar"
-              class="w-10 h-10 rounded-full border border-gray-600"
+                src="/Expense_Trackers/Images/avatar.png"
+                alt="User Avatar"
+                class="w-10 h-10 rounded-full border border-gray-600 cursor-pointer"
+                onclick="toggleProfileEdit()"
             />
-          </div>
+        </div>
+        
+        <div id="profileEdit" class="hidden p-4 bg-gray-800 rounded-lg">
+            <label class="text-gray-200">Name:</label>
+            <input type="text" class="w-full p-2 bg-gray-700 rounded" value="John Doe" />
+            <label class="text-gray-200 mt-2">Email:</label>
+            <input type="email" class="w-full p-2 bg-gray-700 rounded" value="john@example.com" />
+            <button onclick="toggleProfileEdit()" class="mt-4 px-4 py-2 bg-teal-500 text-white rounded">Save</button>
+        </div>
+        
+        <script>
+            function toggleProfileEdit() {
+                const profileEdit = document.getElementById("profileEdit");
+                profileEdit.classList.toggle("hidden");
+        
+                // Add an event listener for clicks outside of the profile edit area
+                document.addEventListener("click", handleClickOutside);
+            }
+        
+            function handleClickOutside(event) {
+                const profileEdit = document.getElementById("profileEdit");
+                const avatar = document.querySelector("img[onclick='toggleProfileEdit()']");
+                
+                // Check if the click happened outside of profileEdit and the avatar image
+                if (!profileEdit.contains(event.target) && event.target !== avatar) {
+                    profileEdit.classList.add("hidden"); // Hide the profile edit form
+                    document.removeEventListener("click", handleClickOutside); // Remove the event listener
+                }
+            }
+        </script>
+        
+          <!-- avartar Section -->
         </header>
     
         <div class="flex p-3 gap-4">
@@ -83,7 +116,7 @@
                 <span>Dashboard</span>
               </a>
               <a
-                href="#"
+                href="analytic.html"
                 class="flex items-center space-x-3 text-gray-300 hover:bg-gray-700 p-3 rounded-md"
               >
                 <i class="bx bx-line-chart text-teal-400"></i>
@@ -99,7 +132,7 @@
               </a>
     
               <a
-                href="#"
+                href="/Expense_Trackers/html/notification.html"
                 class="flex items-center space-x-3 text-gray-300 hover:bg-gray-700 p-3 rounded-md"
               >
                 <i class="bx bx-line-chart text-teal-400"></i>
@@ -108,21 +141,21 @@
     
               
               <a
-                href="#"
+                href=""
                 class="flex items-center space-x-3 text-gray-300 hover:bg-gray-700 p-3 rounded-md"
               >
                 <i class="bx bx-wallet text-teal-400"></i>
                 <span>Transactions</span>
               </a>
               <a
-                href="#"
+                href="account.html"
                 class="flex items-center space-x-3 text-gray-300 hover:bg-gray-700 p-3 rounded-md"
               >
                 <i class="bx bx-user text-teal-400"></i>
                 <span>Account</span>
               </a>
               <a
-                href="#"
+                href="setting.html"
                 class="flex items-center space-x-3 text-gray-300 hover:bg-gray-700 p-3 rounded-md"
               >
                 <i class="bx bx-cog text-teal-400"></i>
@@ -130,7 +163,7 @@
               </a>
     
               <a
-                href="#"
+                href="help.html"
                 class="flex items-center space-x-3 text-gray-300 hover:bg-gray-700 p-3 rounded-md"
               >
                 <i class="bx bx-line-chart text-teal-400"></i>
@@ -138,6 +171,100 @@
               </a>
             </nav>
           </aside>
+    
+          <main class="main-content flex gap-4 p-8 bg-gray-900 text-gray-100 min-h-screen w-full">
+            <!-- Expense List Section -->
+            <section class="expense-list bg-white text-gray-800 rounded-lg p-6 shadow-lg w-2/3">
+                <header class="expense-list-header flex justify-between items-center mb-4">
+                    <h2 class="text-2xl font-semibold text-blue-500">Expense List</h2>
+                    <div class="filter-options">
+                        <select class="bg-gray-200 border border-gray-300 text-gray-800 rounded-md p-2">
+                            <option value="all">All Expenses</option>
+                            <option value="today">Today</option>
+                            <option value="week">This Week</option>
+                            <option value="month">This Month</option>
+                        </select>
+                    </div>
+                </header>
+                <div class="expenses space-y-4">
+                    <!-- Repeatable expense items -->
+                    <div class="expense-item flex justify-between items-center border-b border-gray-300 py-2">
+                        <div class="expense-title font-bold text-gray-700">Groceries</div>
+                        <div class="expense-amount text-green-600 font-bold">$50.00</div>
+                        <div class="expense-date text-gray-500">2024-11-09</div>
+                        <div class="expense-actions text-blue-500 cursor-pointer flex gap-2">
+                            <i class="bx bx-edit-alt"></i>
+                            <i class="bx bx-trash"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="total-expense-summary text-gray-700 mt-4">
+                    Total: <span class="text-green-600">$500.00</span>
+                </div>
+            </section>
+        
+            <!-- Add New Expense Form Section -->
+            <section class="add-expense-form bg-white text-gray-800 rounded-lg p-6 shadow-lg w-1/3">
+                <header class="form-header mb-4">
+                    <h2 class="text-2xl font-semibold text-blue-500">Add New Expense</h2>
+                </header>
+                <form>
+                    <label for="expense-title" class="block text-gray-600">Title</label>
+                    <input
+                        type="text"
+                        id="expense-title"
+                        class="bg-gray-200 border border-gray-300 text-gray-800 rounded-md w-full p-2 mt-1"
+                        placeholder="Enter expense title"
+                    />
+                    <label for="expense-amount" class="mt-4 block text-gray-600">Amount</label>
+                    <input
+                        type="number"
+                        id="expense-amount"
+                        class="bg-gray-200 border border-gray-300 text-gray-800 rounded-md w-full p-2 mt-1"
+                        placeholder="Enter amount"
+                    />
+                    <label for="expense-date" class="mt-4 block text-gray-600">Date</label>
+                    <input
+                        type="date"
+                        id="expense-date"
+                        class="bg-gray-200 border border-gray-300 text-gray-800 rounded-md w-full p-2 mt-1"
+                    />
+                    <label for="expense-category" class="mt-4 block text-gray-600">Category</label>
+                    <select
+                        id="expense-category"
+                        class="bg-gray-200 border border-gray-300 text-gray-800 rounded-md w-full p-2 mt-1"
+                    >
+                        <!-- Category options -->
+                        <option value="groceries">Groceries</option>
+                        <option value="transportation">Transportation</option>
+                        <option value="entertainment">Entertainment</option>
+                        <option value="utilities">Utilities</option>
+                        <option value="housing">Housing</option>
+                        <option value="healthcare">Healthcare</option>
+                        <option value="insurance">Insurance</option>
+                        <option value="education">Education</option>
+                        <option value="savings">Savings</option>
+                        <option value="investments">Investments</option>
+                        <option value="clothing">Clothing</option>
+                        <option value="gifts">Gifts</option>
+                        <option value="travel">Travel</option>
+                        <option value="personal-care">Personal Care</option>
+                        <option value="subscriptions">Subscriptions</option>
+                        <option value="charity">Charity</option>
+                        <option value="childcare">Childcare</option>
+                        <option value="loan-payments">Loan Payments</option>
+                        <option value="taxes">Taxes</option>
+                        <option value="miscellaneous">Miscellaneous</option>
+                    </select>
+                    <div class="form-actions flex gap-2 mt-6">
+                        <button type="submit" class="flex-1 bg-blue-500 text-white p-2 rounded-md">Save</button>
+                        <button type="reset" class="flex-1 bg-gray-500 text-white p-2 rounded-md">Cancel</button>
+                    </div>
+                </form>
+            </section>
+        </main>
+        
+      
      
 </body>
 </html>

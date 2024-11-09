@@ -11,7 +11,7 @@
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <title>BudgetBuddy - Dashboard</title>
+    <title>BudgetBuddy</title>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Itim&display=swap");
       body {
@@ -87,7 +87,7 @@
                 }
             }
         </script>
-s        
+        
         </header>
     
         <div class="flex p-3 gap-4">
@@ -97,13 +97,14 @@ s
             class="w-42 hidden lg:block rounded-lg bg-gray-800 p-2 py-5 fixed lg:relative lg:translate-x-0 transform -translate-x-full transition-transform duration-200 ease-in-out"
           >
             <nav class="space-y-4">
-                <a
-                href="index.html"
+              <a
+                href="/Expense_Trackers/html/index.html"
                 class="flex items-center space-x-3 text-gray-300 hover:bg-gray-700 p-3 rounded-md"
               >
                 <i class="bx bx-home-alt text-teal-400"></i>
                 <span>Home</span>
               </a>
+
 
               <a
                 href="/Expense_Trackers/html/dashboard.html"
@@ -138,7 +139,7 @@ s
     
               
               <a
-                href="#"
+                href="transactions.html"
                 class="flex items-center space-x-3 text-gray-300 hover:bg-gray-700 p-3 rounded-md"
               >
                 <i class="bx bx-wallet text-teal-400"></i>
@@ -168,111 +169,105 @@ s
               </a>
             </nav>
           </aside>
+    
+      
           <main class="flex-1 bg-gray-900 flex gap-4 flex-col lg:flex-row ml-0 lg:ml-42">
-            <!-- Left Side Content: Expense History -->
+            <!-- Left Side Content: Transaction History -->
             <section class="w-full lg:flex-1 p-4 space-y-6 bg-gray-800 flex flex-col rounded-lg">
-              <!-- Expense History Title -->
+              <!-- Transaction History Title -->
               <div class="bg-gray-700 p-5 rounded-md">
                 <div class="flex items-center justify-between mb-4">
                   <div class="flex items-center space-x-3">
-                    <i class="bx bx-cart text-teal-400 text-2xl"></i>
-                    <h2 class="text-lg font-semibold text-gray-100">Expense History</h2>
+                    <i class="bx bx-exchange text-teal-400 text-2xl"></i>
+                    <h2 class="text-lg font-semibold text-gray-100">Recent Transactions</h2>
                   </div>
                 </div>
-                <!-- Expense List -->
+                <!-- Transaction List -->
                 <div class="space-y-4">
-                  <!-- Single Expense Item -->
-                  <div class="flex items-center justify-between text-gray-100">
-                    <div class="flex items-center space-x-3">
-                      <i class="bx bx-food-menu text-teal-400 text-xl"></i>
-                      <span>Food - Restaurant</span>
-                    </div>
-                    <span class="text-red-400">-$50.00</span>
-                  </div>
+                  <!-- Single Transaction Item -->
                   <div class="flex items-center justify-between text-gray-100">
                     <div class="flex items-center space-x-3">
                       <i class="bx bx-cart text-teal-400 text-xl"></i>
-                      <span>Groceries - Supermart</span>
+                      <span>Purchase - Coffee Shop</span>
                     </div>
-                    <span class="text-red-400">-$75.00</span>
+                    <span class="text-red-400">-$5.00</span>
                   </div>
                   <div class="flex items-center justify-between text-gray-100">
                     <div class="flex items-center space-x-3">
-                      <i class="bx bx-travel text-teal-400 text-xl"></i>
-                      <span>Travel - Flight Ticket</span>
+                      <i class="bx bx-dollar text-teal-400 text-xl"></i>
+                      <span>Deposit - PayPal</span>
                     </div>
-                    <span class="text-red-400">-$200.00</span>
+                    <span class="text-green-400">+$50.00</span>
                   </div>
-                  <!-- More expense items can be added here -->
+                  <div class="flex items-center justify-between text-gray-100">
+                    <div class="flex items-center space-x-3">
+                      <i class="bx bx-credit-card text-teal-400 text-xl"></i>
+                      <span>Payment - Amazon</span>
+                    </div>
+                    <span class="text-red-400">-$30.00</span>
+                  </div>
+                  <!-- More transactions can be added here -->
                 </div>
               </div>
             </section>
           
-            <!-- Right Side Content: Expense Summary & Filter Options -->
+            <!-- Right Side Content: Transaction Summary & Account Details -->
             <section class="w-full lg:w-[300px] p-4 flex flex-col justify-between gap-4 bg-gray-800 rounded-lg">
-              <!-- Expense Summary -->
+              <!-- Account Summary -->
               <div class="bg-gray-700 p-5 rounded-md text-gray-100">
-                <h3 class="text-xl font-semibold mb-2">Expense Summary</h3>
+                <h3 class="text-xl font-semibold mb-2">Account Summary</h3>
                 <div class="flex justify-between mb-4">
                   <div>
-                    <span class="text-sm text-gray-400">Total Expenses</span>
-                    <h2 class="text-lg font-bold">$525.00</h2>
+                    <span class="text-sm text-gray-400">Available Balance</span>
+                    <h2 class="text-lg font-bold">$5,320.00</h2>
                   </div>
                   <div>
-                    <span class="text-sm text-gray-400">Highest Expense</span>
-                    <h2 class="text-lg font-bold">$200.00</h2>
+                    <span class="text-sm text-gray-400">Total Spend</span>
+                    <h2 class="text-lg font-bold">$2,450.00</h2>
                   </div>
                 </div>
                 <div class="flex justify-between">
                   <div>
-                    <span class="text-sm text-gray-400">Avg. Expense</span>
-                    <h2 class="text-lg font-bold">$87.50</h2>
+                    <span class="text-sm text-gray-400">Total Income</span>
+                    <h2 class="text-lg font-bold">$7,500.00</h2>
                   </div>
                   <div>
-                    <span class="text-sm text-gray-400">Expense Category</span>
-                    <h2 class="text-lg font-bold">Travel</h2>
+                    <span class="text-sm text-gray-400">Pending Transactions</span>
+                    <h2 class="text-lg font-bold">$800.00</h2>
                   </div>
                 </div>
               </div>
           
-              <!-- Expense Category Breakdown -->
+              <!-- Transaction Pie Chart -->
               <div class="bg-gray-700 p-5 rounded-md overflow-hidden">
                 <div class="flex items-center justify-between mb-4">
                   <i class="bx bx-wallet text-teal-400 text-2xl"></i>
-                  <h2 class="text-lg font-semibold text-gray-100">Expense Breakdown</h2>
+                  <h2 class="text-lg font-semibold text-gray-100">Transaction Breakdown</h2>
                 </div>
                 <div class="flex justify-center px-10 overflow-hidden">
-                  <canvas id="expenseBreakdownChart" class="w-20 md:w-32 lg:w-40"></canvas>
+                  <canvas id="transactionBreakdownChart" class="w-20 md:w-32 lg:w-40"></canvas>
                 </div>
               </div>
           
-              <!-- Expense Filter Options -->
+              <!-- Recent Activity -->
               <div class="bg-gray-700 p-5 rounded-md">
-                <h3 class="text-lg font-semibold text-gray-100 mb-4">Filter Expenses</h3>
-                <div class="flex flex-col gap-4">
-                  <!-- Date Range Filter -->
-                  <div>
-                    <label for="startDate" class="text-sm text-gray-400">Start Date</label>
-                    <input type="date" id="startDate" class="w-full p-2 bg-gray-600 rounded-md text-gray-100" />
+                <h3 class="text-lg font-semibold text-gray-100 mb-4">Recent Activity</h3>
+                <div class="space-y-4">
+                  <div class="flex items-center justify-between text-gray-100">
+                    <div class="flex items-center space-x-3">
+                      <i class="bx bx-receipt text-teal-400 text-xl"></i>
+                      <span>Refund - Store</span>
+                    </div>
+                    <span class="text-green-400">+$15.00</span>
                   </div>
-                  <div>
-                    <label for="endDate" class="text-sm text-gray-400">End Date</label>
-                    <input type="date" id="endDate" class="w-full p-2 bg-gray-600 rounded-md text-gray-100" />
+                  <div class="flex items-center justify-between text-gray-100">
+                    <div class="flex items-center space-x-3">
+                      <i class="bx bx-transfer text-teal-400 text-xl"></i>
+                      <span>Transfer - Bank</span>
+                    </div>
+                    <span class="text-red-400">-$100.00</span>
                   </div>
-          
-                  <!-- Category Filter -->
-                  <div>
-                    <label for="category" class="text-sm text-gray-400">Category</label>
-                    <select id="category" class="w-full p-2 bg-gray-600 rounded-md text-gray-100">
-                      <option value="all">All</option>
-                      <option value="food">Food</option>
-                      <option value="groceries">Groceries</option>
-                      <option value="travel">Travel</option>
-                    </select>
-                  </div>
-          
-                  <!-- Filter Button -->
-                  <button class="w-full bg-teal-500 text-white p-2 rounded-md mt-4">Apply Filters</button>
+                  <!-- More activity items can be added here -->
                 </div>
               </div>
             </section>

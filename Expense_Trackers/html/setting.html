@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./output.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <title>BudgetBuddy</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Itim&display=swap");
+      body {
+        font-family: "Itim", cursive;
+      }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 overflow-x-clip">
+    <!-- Header Section -->
+    <header class="p-4 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <button
+              id="menuButton"
+              class="text-gray-100 text-3xl lg:hidden hover:text-gray-400"
+              aria-label="Open Menu"
+            >
+              <i class="bx bx-menu"></i>
+            </button>
+            <div class="flex items-center gap-2 text-teal-400 cursor-pointer">
+              <i class="bx bx-infinite text-3xl"></i>
+              <span class="text-xl font-semibold">BudgetBuddy</span>
+            </div>
+        </div>
+    
+        <div class="flex items-center">
+            <div class="relative hidden lg:flex w-[500px]">
+                <input
+                  type="text"
+                  placeholder="Search..."
+                  class="w-full py-2 pl-10 pr-4 bg-gray-800 border border-gray-600 rounded-md text-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                />
+                <i
+                  class="bx bx-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                ></i>
+            </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-gray-300 font-medium">John Doe</span>
+          <img
+              src="/Expense_Trackers/Images/avatar.png"
+              alt="User Avatar"
+              class="w-10 h-10 rounded-full border border-gray-600 cursor-pointer"
+              onclick="toggleProfileEdit()"
+          />
+      </div>
+      
+      <div id="profileEdit" class="hidden p-4 bg-gray-800 rounded-lg">
+          <label class="text-gray-200">Name:</label>
+          <input type="text" class="w-full p-2 bg-gray-700 rounded" value="John Doe" />
+          <label class="text-gray-200 mt-2">Email:</label>
+          <input type="email" class="w-full p-2 bg-gray-700 rounded" value="john@example.com" />
+          <button onclick="toggleProfileEdit()" class="mt-4 px-4 py-2 bg-teal-500 text-white rounded">Save</button>
+      </div>
+      
+      <script>
+          function toggleProfileEdit() {
+              const profileEdit = document.getElementById("profileEdit");
+              profileEdit.classList.toggle("hidden");
+      
+              // Add an event listener for clicks outside of the profile edit area
+              document.addEventListener("click", handleClickOutside);
+          }
+      
+          function handleClickOutside(event) {
+              const profileEdit = document.getElementById("profileEdit");
+              const avatar = document.querySelector("img[onclick='toggleProfileEdit()']");
+              
+              // Check if the click happened outside of profileEdit and the avatar image
+              if (!profileEdit.contains(event.target) && event.target !== avatar) {
+                  profileEdit.classList.add("hidden"); // Hide the profile edit form
+                  document.removeEventListener("click", handleClickOutside); // Remove the event listener
+              }
+          }
+      </script>
+      
+    </header>
+    
+    <div class="flex p-3 gap-4">
+        <!-- Sidebar Section -->
+        <aside
+            id="sidebar"
+            class="w-42 hidden lg:block rounded-lg bg-gray-800 p-2 py-5 fixed lg:relative lg:translate-x-0 transform -translate-x-full transition-transform duration-200 ease-in-out"
+        >
+            <nav class="space-y-4">
+                <a href="/Expense_Trackers/html/index.html" class="flex items-center space-x-3 text-gray-300 hover:bg-gray-700 p-3 rounded-md">
+                    <i class="bx bx-home-alt text-teal-400"></i>
+                    <span>Home</span>
+                </a>
+                <a href="/Expense_Trackers/html/dashboard.html" class="flex items-center space-x-3 text-gray-300 hover:bg-gray-700 p-3 rounded-md">
+                    <i class="bx bx-home-alt text-teal-400"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="analytic.html" class="flex items-center space-x-3 text-gray-300 hover:bg-gray-700 p-3 rounded-md">
+                    <i class="bx bx-line-chart text-teal-400"></i>
+                    <span>Analytics</span>
+                </a>
+                <a href="/Expense_Trackers/html/expense-history.html" class="flex items-center space-x-3 text-gray-300 hover:bg-gray-700 p-3 rounded-md">
+                    <i class="bx bx-line-chart text-teal-400"></i>
+                    <span>Expense History</span>
+                </a>
+                <a href="notification.html" class="flex items-center space-x-3 text-gray-300 hover:bg-gray-700 p-3 rounded-md">
+                    <i class="bx bx-line-chart text-teal-400"></i>
+                    <span>Notifications</span>
+                </a>
+                <a href="#" class="flex items-center space-x-3 text-gray-300 hover:bg-gray-700 p-3 rounded-md">
+                    <i class="bx bx-wallet text-teal-400"></i>
+                    <span>Transactions</span>
+                </a>
+                <a href="/Expense_Trackers/html/account.html" class="flex items-center space-x-3 text-gray-300 hover:bg-gray-700 p-3 rounded-md">
+                    <i class="bx bx-user text-teal-400"></i>
+                    <span>Account</span>
+                </a>
+                <a href="/Expense_Trackers/html/setting.html" class="flex items-center space-x-3 text-gray-300 hover:bg-gray-700 p-3 rounded-md">
+                    <i class="bx bx-cog text-teal-400"></i>
+                    <span>Settings</span>
+                </a>
+                <a href="help.html" class="flex items-center space-x-3 text-gray-300 hover:bg-gray-700 p-3 rounded-md">
+                    <i class="bx bx-line-chart text-teal-400"></i>
+                    <span>Help</span>
+                </a>
+            </nav>
+        </aside>
+    
+        <main class="flex-1 bg-gray-900 flex gap-4 flex-col lg:flex-row ml-0 lg:ml-42 p-8">
+            <!-- Left Side Content: Settings Overview -->
+            <section class="w-full lg:w-[300px] p-4 space-y-6 bg-gray-800 flex flex-col rounded-lg">
+              <!-- Settings Title -->
+              <div class="bg-gray-700 p-5 rounded-md">
+                <div class="flex items-center justify-between mb-4">
+                  <div class="flex items-center space-x-3">
+                    <i class="bx bx-cog text-teal-400 text-2xl"></i>
+                    <h2 class="text-lg font-semibold text-gray-100">Settings</h2>
+                  </div>
+                </div>
+                <!-- Notifications Section -->
+                <div class="space-y-4">
+                  <h3 class="text-xl text-blue-500 mb-4">Notifications</h3>
+                  <div class="flex items-center justify-between text-gray-100">
+                    <div class="flex items-center space-x-3">
+                      <input type="checkbox" id="email-notifications" class="h-6 w-6 text-teal-100" checked />
+                      <label for="email-notifications">Email Notifications</label>
+                    </div>
+                    <span class="text-teal-400">Edit</span>
+                  </div>
+                  <div class="flex items-center justify-between text-gray-100">
+                    <div class="flex items-center space-x-3">
+                      <input type="checkbox" id="sms-notifications" class="h-6 w-6 text-teal-100" />
+                      <label for="sms-notifications">SMS Notifications</label>
+                    </div>
+                    <span class="text-teal-400">Edit</span>
+                  </div>
+                  <div class="flex items-center justify-between text-gray-100">
+                    <div class="flex items-center space-x-3">
+                      <input type="checkbox" id="push-notifications" class="h-6 w-6 text-teal-100" />
+                      <label for="push-notifications">Push Notifications</label>
+                    </div>
+                    <span class="text-teal-400">Edit</span>
+                  </div>
+                </div>
+              </div>
+          
+              <!-- Privacy Settings -->
+              <div class="bg-gray-700 p-5 rounded-md">
+                <h3 class="text-xl text-blue-500 mb-4">Privacy Settings</h3>
+                <div class="space-y-4">
+                  <div class="flex items-center justify-between text-gray-100">
+                    <div class="flex items-center space-x-3">
+                      <input type="checkbox" id="data-sharing" class="h-6 w-6 text-teal-400" />
+                      <label for="data-sharing">Allow Data Sharing</label>
+                    </div>
+                    <span class="text-teal-400">Edit</span>
+                  </div>
+                  <div class="flex items-center justify-between text-gray-100">
+                    <div class="flex items-center space-x-3">
+                      <input type="checkbox" id="profile-visibility" class="h-6 w-6 text-teal-400" />
+                      <label for="profile-visibility">Profile Visibility</label>
+                    </div>
+                    <span class="text-teal-400">Edit</span>
+                  </div>
+                </div>
+              </div>
+          
+              <!-- Language Preferences -->
+              <div class="bg-gray-700 p-5 rounded-md">
+                <h3 class="text-xl text-blue-500 mb-4">Language Preferences</h3>
+                <select class="w-full p-2 bg-gray-600 text-gray-100 rounded-md">
+                  <option>English</option>
+                  <option>Spanish</option>
+                  <option>French</option>
+                  <option>German</option>
+                </select>
+              </div>
+            </section>
+          
+            <!-- Right Side Content: Account Settings -->
+            <section class="w-full lg:flex-1 p-4 space-y-6 bg-gray-800 flex flex-col rounded-lg">
+              <!-- Account Settings -->
+              <div class="bg-gray-700 p-5 rounded-md">
+                <h3 class="text-xl text-blue-500 mb-4">Account Settings</h3>
+                <div class="space-y-4">
+                  <button class="bg-gray-500 text-white py-3 px-8 rounded-md text-xl w-full">Change Password</button>
+                  <button class="bg-red-500 text-white py-3 px-8 rounded-md text-xl w-full">Delete Account</button>
+                </div>
+              </div>
+            </section>
+          </main>
+          
+</body>
+</html>

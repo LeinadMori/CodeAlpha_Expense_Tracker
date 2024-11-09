@@ -11,7 +11,7 @@
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <title>BudgetBuddy - Dashboard</title>
+    <title>BudgetBuddy</title>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Itim&display=swap");
       body {
@@ -87,7 +87,7 @@
                 }
             }
         </script>
-s        
+        
         </header>
     
         <div class="flex p-3 gap-4">
@@ -97,13 +97,14 @@ s
             class="w-42 hidden lg:block rounded-lg bg-gray-800 p-2 py-5 fixed lg:relative lg:translate-x-0 transform -translate-x-full transition-transform duration-200 ease-in-out"
           >
             <nav class="space-y-4">
-                <a
-                href="index.html"
+              <a
+                href="/Expense_Trackers/html/home.html"
                 class="flex items-center space-x-3 text-gray-300 hover:bg-gray-700 p-3 rounded-md"
               >
                 <i class="bx bx-home-alt text-teal-400"></i>
                 <span>Home</span>
               </a>
+
 
               <a
                 href="/Expense_Trackers/html/dashboard.html"
@@ -138,7 +139,7 @@ s
     
               
               <a
-                href="#"
+                href="transactions.html"
                 class="flex items-center space-x-3 text-gray-300 hover:bg-gray-700 p-3 rounded-md"
               >
                 <i class="bx bx-wallet text-teal-400"></i>
@@ -169,115 +170,86 @@ s
             </nav>
           </aside>
           <main class="flex-1 bg-gray-900 flex gap-4 flex-col lg:flex-row ml-0 lg:ml-42">
-            <!-- Left Side Content: Expense History -->
+            <!-- Left Side Content: Notifications List -->
             <section class="w-full lg:flex-1 p-4 space-y-6 bg-gray-800 flex flex-col rounded-lg">
-              <!-- Expense History Title -->
+              <!-- Notifications Title -->
               <div class="bg-gray-700 p-5 rounded-md">
                 <div class="flex items-center justify-between mb-4">
                   <div class="flex items-center space-x-3">
-                    <i class="bx bx-cart text-teal-400 text-2xl"></i>
-                    <h2 class="text-lg font-semibold text-gray-100">Expense History</h2>
+                    <i class="bx bx-bell text-teal-400 text-2xl"></i>
+                    <h2 class="text-lg font-semibold text-gray-100">Notifications</h2>
                   </div>
                 </div>
-                <!-- Expense List -->
+                <!-- Notifications List -->
                 <div class="space-y-4">
-                  <!-- Single Expense Item -->
-                  <div class="flex items-center justify-between text-gray-100">
-                    <div class="flex items-center space-x-3">
-                      <i class="bx bx-food-menu text-teal-400 text-xl"></i>
-                      <span>Food - Restaurant</span>
+                  <!-- Single Notification Item -->
+                  <div class="flex items-start justify-between text-gray-100 border-b border-gray-600 pb-2">
+                    <div class="flex items-start space-x-3">
+                      <i class="bx bx-info-circle text-teal-400 text-xl"></i>
+                      <div>
+                        <span class="font-semibold">New Feature Update</span>
+                        <p class="text-sm text-gray-400">We’ve added new functionalities to your dashboard. Check it out now!</p>
+                      </div>
                     </div>
-                    <span class="text-red-400">-$50.00</span>
+                    <span class="text-gray-500 text-sm">2 hrs ago</span>
                   </div>
-                  <div class="flex items-center justify-between text-gray-100">
-                    <div class="flex items-center space-x-3">
-                      <i class="bx bx-cart text-teal-400 text-xl"></i>
-                      <span>Groceries - Supermart</span>
+                  <!-- Repeat more notification items here -->
+                  <div class="flex items-start justify-between text-gray-100 border-b border-gray-600 pb-2">
+                    <div class="flex items-start space-x-3">
+                      <i class="bx bx-message-square-dots text-teal-400 text-xl"></i>
+                      <div>
+                        <span class="font-semibold">Message from Support</span>
+                        <p class="text-sm text-gray-400">Your recent inquiry has been resolved. Please review our response.</p>
+                      </div>
                     </div>
-                    <span class="text-red-400">-$75.00</span>
+                    <span class="text-gray-500 text-sm">1 day ago</span>
                   </div>
-                  <div class="flex items-center justify-between text-gray-100">
-                    <div class="flex items-center space-x-3">
-                      <i class="bx bx-travel text-teal-400 text-xl"></i>
-                      <span>Travel - Flight Ticket</span>
-                    </div>
-                    <span class="text-red-400">-$200.00</span>
-                  </div>
-                  <!-- More expense items can be added here -->
                 </div>
               </div>
             </section>
           
-            <!-- Right Side Content: Expense Summary & Filter Options -->
+            <!-- Right Side Content: Notification Settings & Contact Support -->
             <section class="w-full lg:w-[300px] p-4 flex flex-col justify-between gap-4 bg-gray-800 rounded-lg">
-              <!-- Expense Summary -->
+              <!-- Notification Settings -->
               <div class="bg-gray-700 p-5 rounded-md text-gray-100">
-                <h3 class="text-xl font-semibold mb-2">Expense Summary</h3>
-                <div class="flex justify-between mb-4">
-                  <div>
-                    <span class="text-sm text-gray-400">Total Expenses</span>
-                    <h2 class="text-lg font-bold">$525.00</h2>
+                <h3 class="text-xl font-semibold mb-2">Notification Settings</h3>
+                <div class="space-y-4">
+                  <div class="flex items-center justify-between">
+                    <span>Email Notifications</span>
+                    <input type="checkbox" class="bg-gray-600 rounded-md" checked />
                   </div>
-                  <div>
-                    <span class="text-sm text-gray-400">Highest Expense</span>
-                    <h2 class="text-lg font-bold">$200.00</h2>
+                  <div class="flex items-center justify-between">
+                    <span>Push Notifications</span>
+                    <input type="checkbox" class="bg-gray-600 rounded-md" />
                   </div>
-                </div>
-                <div class="flex justify-between">
-                  <div>
-                    <span class="text-sm text-gray-400">Avg. Expense</span>
-                    <h2 class="text-lg font-bold">$87.50</h2>
-                  </div>
-                  <div>
-                    <span class="text-sm text-gray-400">Expense Category</span>
-                    <h2 class="text-lg font-bold">Travel</h2>
+                  <div class="flex items-center justify-between">
+                    <span>SMS Alerts</span>
+                    <input type="checkbox" class="bg-gray-600 rounded-md" />
                   </div>
                 </div>
               </div>
           
-              <!-- Expense Category Breakdown -->
-              <div class="bg-gray-700 p-5 rounded-md overflow-hidden">
-                <div class="flex items-center justify-between mb-4">
-                  <i class="bx bx-wallet text-teal-400 text-2xl"></i>
-                  <h2 class="text-lg font-semibold text-gray-100">Expense Breakdown</h2>
-                </div>
-                <div class="flex justify-center px-10 overflow-hidden">
-                  <canvas id="expenseBreakdownChart" class="w-20 md:w-32 lg:w-40"></canvas>
-                </div>
-              </div>
-          
-              <!-- Expense Filter Options -->
+              <!-- Contact Support -->
               <div class="bg-gray-700 p-5 rounded-md">
-                <h3 class="text-lg font-semibold text-gray-100 mb-4">Filter Expenses</h3>
-                <div class="flex flex-col gap-4">
-                  <!-- Date Range Filter -->
+                <h3 class="text-lg font-semibold text-gray-100 mb-4">Contact Support</h3>
+                <p class="text-sm text-gray-400 mb-4">Need help with your notifications? Reach out to our support team below:</p>
+                <form class="space-y-4">
                   <div>
-                    <label for="startDate" class="text-sm text-gray-400">Start Date</label>
-                    <input type="date" id="startDate" class="w-full p-2 bg-gray-600 rounded-md text-gray-100" />
+                    <label for="name" class="text-sm text-gray-400">Name</label>
+                    <input type="text" id="name" class="w-full p-2 bg-gray-600 rounded-md text-gray-100" />
                   </div>
                   <div>
-                    <label for="endDate" class="text-sm text-gray-400">End Date</label>
-                    <input type="date" id="endDate" class="w-full p-2 bg-gray-600 rounded-md text-gray-100" />
+                    <label for="email" class="text-sm text-gray-400">Email</label>
+                    <input type="email" id="email" class="w-full p-2 bg-gray-600 rounded-md text-gray-100" />
                   </div>
-          
-                  <!-- Category Filter -->
                   <div>
-                    <label for="category" class="text-sm text-gray-400">Category</label>
-                    <select id="category" class="w-full p-2 bg-gray-600 rounded-md text-gray-100">
-                      <option value="all">All</option>
-                      <option value="food">Food</option>
-                      <option value="groceries">Groceries</option>
-                      <option value="travel">Travel</option>
-                    </select>
+                    <label for="message" class="text-sm text-gray-400">Message</label>
+                    <textarea id="message" class="w-full p-2 bg-gray-600 rounded-md text-gray-100" rows="4"></textarea>
                   </div>
-          
-                  <!-- Filter Button -->
-                  <button class="w-full bg-teal-500 text-white p-2 rounded-md mt-4">Apply Filters</button>
-                </div>
+                  <button class="w-full bg-teal-500 text-white p-2 rounded-md mt-4">Send Message</button>
+                </form>
               </div>
             </section>
           </main>
-          
-     
 </body>
 </html>

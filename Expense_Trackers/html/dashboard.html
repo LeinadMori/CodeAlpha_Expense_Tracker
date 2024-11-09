@@ -51,11 +51,42 @@
       <div class="flex items-center gap-2">
         <span class="text-gray-300 font-medium">John Doe</span>
         <img
-          src="/Expense_Trackers/Images/avatar.png"
-          alt="User Avatar"
-          class="w-10 h-10 rounded-full border border-gray-600"
+            src="/Expense_Trackers/Images/avatar.png"
+            alt="User Avatar"
+            class="w-10 h-10 rounded-full border border-gray-600 cursor-pointer"
+            onclick="toggleProfileEdit()"
         />
-      </div>
+    </div>
+    
+    <div id="profileEdit" class="hidden p-4 bg-gray-800 rounded-lg">
+        <label class="text-gray-200">Name:</label>
+        <input type="text" class="w-full p-2 bg-gray-700 rounded" value="John Doe" />
+        <label class="text-gray-200 mt-2">Email:</label>
+        <input type="email" class="w-full p-2 bg-gray-700 rounded" value="john@example.com" />
+        <button onclick="toggleProfileEdit()" class="mt-4 px-4 py-2 bg-teal-500 text-white rounded">Save</button>
+    </div>
+    
+    <script>
+        function toggleProfileEdit() {
+            const profileEdit = document.getElementById("profileEdit");
+            profileEdit.classList.toggle("hidden");
+    
+            // Add an event listener for clicks outside of the profile edit area
+            document.addEventListener("click", handleClickOutside);
+        }
+    
+        function handleClickOutside(event) {
+            const profileEdit = document.getElementById("profileEdit");
+            const avatar = document.querySelector("img[onclick='toggleProfileEdit()']");
+            
+            // Check if the click happened outside of profileEdit and the avatar image
+            if (!profileEdit.contains(event.target) && event.target !== avatar) {
+                profileEdit.classList.add("hidden"); // Hide the profile edit form
+                document.removeEventListener("click", handleClickOutside); // Remove the event listener
+            }
+        }
+    </script>
+    
     </header>
 
     <div class="flex p-3 gap-4">
@@ -81,7 +112,7 @@
             <span>Dashboard</span>
           </a>
           <a
-            href="#"
+            href="analytic.html"
             class="flex items-center space-x-3 text-gray-300 hover:bg-gray-700 p-3 rounded-md"
           >
             <i class="bx bx-line-chart text-teal-400"></i>
@@ -97,7 +128,7 @@
           </a>
 
           <a
-            href="#"
+            href="/Expense_Trackers/html/notification.html"
             class="flex items-center space-x-3 text-gray-300 hover:bg-gray-700 p-3 rounded-md"
           >
             <i class="bx bx-line-chart text-teal-400"></i>
@@ -106,14 +137,14 @@
 
           
           <a
-            href="#"
+            href="transactions.html"
             class="flex items-center space-x-3 text-gray-300 hover:bg-gray-700 p-3 rounded-md"
           >
             <i class="bx bx-wallet text-teal-400"></i>
             <span>Transactions</span>
           </a>
           <a
-            href="#"
+            href="account.html"
             class="flex items-center space-x-3 text-gray-300 hover:bg-gray-700 p-3 rounded-md"
           >
             <i class="bx bx-user text-teal-400"></i>
@@ -128,7 +159,7 @@
           </a>
 
           <a
-            href="#"
+            href="help.html"
             class="flex items-center space-x-3 text-gray-300 hover:bg-gray-700 p-3 rounded-md"
           >
             <i class="bx bx-line-chart text-teal-400"></i>
